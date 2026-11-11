@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>صفحه‌ساز شخصی | فیوچریستیک</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Vazirmatn:wght@400;600;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bg">
+      <div class="grid"></div>
+      <div class="blob b1"></div>
+      <div class="blob b2"></div>
+      <canvas id="fx"></canvas>
+    </div>
+    <div class="glow" id="glow"></div>
+    <button class="btn toggle" id="toggleMode">👁 حالت نمایش</button>
+
+    <div class="layout">
+      <aside class="panel" id="panel">
+        <h2>اطلاعات شخصی</h2>
+        <label for="name">نام</label><input type="text" id="name" />
+        <label for="bio">درباره من</label><textarea id="bio"></textarea>
+        <label for="emoji">آواتار (ایموجی)</label
+        ><input type="text" id="emoji" maxlength="4" />
+        <label for="photo">یا آپلود عکس</label
+        ><input type="file" id="photo" accept="image/*" />
+        <button class="btn" id="removePhoto" style="margin-top: 6px">
+          حذف عکس
+        </button>
+
+        <h2>لینک‌ها</h2>
+        <div id="linkEditor"></div>
+        <button class="btn primary" id="addLink">+ افزودن لینک</button>
+
+        <h2>ظاهر صفحه</h2>
+        <label>تم آماده</label>
+        <div class="swatches" id="themes"></div>
+        <label>رنگ‌ها</label>
+        <div class="row">
+          <span>پس‌زمینه</span><input type="color" id="cBg" /><span>متن</span
+          ><input type="color" id="cText" />
+        </div>
+        <div class="row" style="margin-top: 8px">
+          <span>نئون ۱</span><input type="color" id="cAccent" /><span
+            >نئون ۲</span
+          ><input type="color" id="cAccent2" />
+        </div>
+        <label for="font">فونت</label>
+        <select id="font">
+          <option value="'Vazirmatn',Tahoma,sans-serif">وزیرمتن</option>
+          <option value="'Orbitron','Vazirmatn',sans-serif">
+            اوربیترون (فیوچریستیک)
+          </option>
+          <option value="'Courier New',monospace">ترمینال</option>
+        </select>
+        <label for="shape">شکل دکمه‌ها</label>
+        <select id="shape">
+          <option value="2px">تیز</option>
+          <option value="14px">گرد</option>
+          <option value="999px">کپسولی</option>
+        </select>
+        <label class="row" style="margin-top: 12px"
+          ><input type="checkbox" id="anim" />
+          <span>انیمیشن‌ها فعال باشد</span></label
+        >
+
+        <h2>ذخیره و بازیابی</h2>
+        <div class="row">
+          <button class="btn" id="exportBtn">خروجی JSON</button>
+          <button class="btn" id="importBtn">وارد کردن</button>
+          <button class="btn danger" id="resetBtn">بازنشانی</button>
+        </div>
+        <input type="file" id="importFile" accept="application/json" hidden />
+      </aside>
+
+      <main class="stage">
+        <div class="hud" id="hud">
+          <i></i><i></i><i></i><i></i>
+          <div class="ring"><div class="avatar" id="vAvatar"></div></div>
+          <h1 class="name" id="vName"></h1>
+          <p class="bio" id="vBio"></p>
+          <nav class="links" id="vLinks"></nav>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
